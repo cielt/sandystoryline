@@ -7,7 +7,7 @@
  */
 
 // STORY post type metaboxes
-include('story-metaboxes.php');
+//include('story-metaboxes.php');
 
 
 
@@ -141,6 +141,7 @@ function sandy_scripts() {
 
 	wp_enqueue_style( 'sandyfonts-opensans', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', array( 'style' ) );
 	wp_enqueue_style( 'sandyfonts-leaguegothic', get_stylesheet_directory_uri() . '/css/league-gothic.css', array( 'style' ) );
+	wp_enqueue_style( 'sandystyles', get_stylesheet_directory_uri() . '/css/sandy.css', array( 'style' ) );
 	
 	//cowbird collection embed script 
 	if ( is_page_template('page-cowbird.php')  ) {
@@ -159,7 +160,7 @@ function sandy_scripts() {
 	if ( is_page_template('page-stories.php')  ) {
 	 	wp_enqueue_script( 'colorbox', get_stylesheet_directory_uri() . '/js/libs/jquery.colorbox-min.js', array( 'jquery' ), '20120320', false );
 		wp_enqueue_script( 'storyline', get_stylesheet_directory_uri() . '/js/storyline.js', array( 'jquery' ), '20120320', false );
-	 	wp_enqueue_style( 'colorbox-css', get_stylesheet_directory_uri() . '/css/colorbox.css', array( 'style' ) );
+	 	wp_enqueue_style( 'colorbox-css', get_stylesheet_directory_uri() . '/css/colorbox-sandy.css', array( 'style' ) );
 	 }
 	
 	

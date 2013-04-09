@@ -1,13 +1,17 @@
 var MediaPlayer = {};
+
 jQuery(document).ready(function($) {
+
 	MediaPlayer.playerBox = $(".player");
-	var playerW = MediaPlayer.playerBox.width();
+	 var playerW = MediaPlayer.playerBox.parent().width();
+	console.log("player parent container width:"+playerW);
+	
 	//setup
 	MediaPlayer.storyaudio = $('<audio>');
 	MediaPlayer.storyaudio.attr({'id':'storyaudio', 'type':'audio/mp3', 'src': MediaPlayer.playerBox.attr('audiosrc'), 'controls': 'controls'});
 	MediaPlayer.playerBox.append(MediaPlayer.storyaudio);
-	console.log("sanity check for story audio template dir :"+templateDir+" parent width = "+playerW);	
-	//console.log("audio at "+MediaPlayer.storyaudio.attr('src'));
+	//console.log("sanity check for story audio template dir :"+templateDir+" parent width = "+playerW);	
+	//console.log("audio "+MediaPlayer.storyaudio.attr('src'));
 	
 	if (MediaPlayer.playerBox){
 		var newPlayer = new MediaElementPlayer(MediaPlayer.storyaudio, {
@@ -19,4 +23,7 @@ jQuery(document).ready(function($) {
 			});
 		}
 		
-	});
+	//other listeners	
+			
+		
+});

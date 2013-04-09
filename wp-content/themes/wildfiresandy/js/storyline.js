@@ -1,11 +1,13 @@
 var Storyline = {};
 jQuery(document).ready(function($) {
-	//storyline links
-	/*$("a.storyline").click(function(e){ 
-		e.preventDefault();
-		alert("hello!"+$(this).attr("href")); 
-	});
-	*/
-	$("a.storyline").colorbox({rel:'storyline'})
-		
+
+	jQuery("a.storyline").colorbox({
+		rel:'storyline',
+		maxWidth : '100%',
+		maxHeight : '100%',
+		current : 'Sandy Storyline',
+		previous : '&larr;',
+		next : '&rarr;'
+	})
+
 });

@@ -36,43 +36,34 @@ $meta_boxes[] = array(
 	'priority' => 'high',
 
 	'fields' => array(
+		// RADIO BUTTONS
+		array(
+			'name'    => 'This is the Story of',
+			'id'      => "{$prefix}storyof",
+			'required'  => true,
+			'type'    => 'radio',
+			// Array of 'value' => 'Label' pairs for radio options.
+			// Note: the 'value' is stored in meta field, not the 'Label'
+			'options' => array(
+				'self' => 'You are telling your own story',
+				'another' => 'You are telling someone else\'s story',
+			),
+			'std'   => 'self'
+		),
 		// CONTRIBUTOR
 		array(
 			// Field name - Will be used as label
-			'name'  => 'Contributor',
+			'name'  => 'Your Name(s)',
 			// Field ID, i.e. the meta key
 			'id'    => "{$prefix}contributor",
+			'required'  => true,
 			// Field description (optional)
-			'desc'  => 'Your name',
+			'desc'  => 'Please write \'Anonymous\' if you wish not to share your name(s) as the author(s) of your story',
 			'type'  => 'text',
 			// Default value (optional)
-			'std'   => '',
+			'std'   => 'Anonymous',
 			// CLONES: make the field cloneable (i.e., can have multiple values)
 			'clone' => true
-		),
-		// STORYTELLER
-		array(
-			// Field name - Will be used as label
-			'name'  => 'Storyteller',
-			// Field ID, i.e. the meta key
-			'id'    => "{$prefix}storyteller",
-			// Field description (optional)
-			'desc'  => 'The author of this story (if this is not you)',
-			'type'  => 'text',
-			// Default value (optional)
-			'std'   => '',
-			// CLONES: make the field cloneable (i.e. can have multiple values)
-			'clone' => true
-		),
-		// DISPLAY STORYTELLER NAME(S)
-		array(
-			'name' => 'Anonymous',
-			'id'   => "{$prefix}isAnonymous",
-			// Field description (optional)
-			'desc'  => 'Please check if you wish to remain anonymous',
-			'type' => 'checkbox',
-			// Value can be 0 or 1
-			'std'  => 0,
 		)
 	)
 );
@@ -97,6 +88,7 @@ $meta_boxes[] = array(
 		array(
 			'name' => 'Date of Story',
 			'id'   => "{$prefix}date",
+			'required' => true,
 			'desc'  => 'Please indicate the date (as close as possible) on which this story took place',
 			'type' => 'date',
 
@@ -109,16 +101,64 @@ $meta_boxes[] = array(
 				'showButtonPanel' => true
 			),
 		),
+		// LOCATION - TAXONOMY
+		array(
+			'name'    => 'Location',
+			//'id'      => "{$prefix}locations",
+			'desc' => 'Please select the location (as close as possible) of this story; you may select multiple values',
+			'type'    => 'taxonomy',
+			'options' => array(
+				// Taxonomy name
+				'taxonomy' => 'locations',
+				// How to show taxonomy: 'checkbox_list' (default) or 'checkbox_tree', 'select_tree' or 'select'. Optional
+				'type' => 'checkbox_list',
+				'multiple' => true,
+				// Additional arguments for get_terms() function. Optional
+				'args' => array()
+			),
+		),
 		// LOCATION - SPECIFIC
 		array(
-			'name'    => 'Specific Location',
+			'name'    => 'Additional Location Information',
 			// Field ID, i.e. the meta key
 			'id'    => "{$prefix}location_specific",
 			// Field description (optional)
-			'desc'  => 'The specific location of the story, if applicable (in addition to borough and neighborhood)',
+			'desc'  => 'Additional location information, if applicable (e.g., building, street, landmark)',
 			'type'  => 'text',
 			// Default value (optional)
 			'std'   => ''
+		),
+		// THEME - TAXONOMY
+		array(
+			'name'    => 'Theme',
+			//'id'      => "{$prefix}themes",
+			'desc' => 'Please select a theme that applies to this story; you may select multiple values',
+			'type'    => 'taxonomy',
+			'options' => array(
+				// Taxonomy name
+				'taxonomy' => 'themes',
+				// How to show taxonomy: 'checkbox_list' (default) or 'checkbox_tree', 'select_tree' or 'select'. Optional
+				'type' => 'checkbox_list',
+				'multiple' => true,
+				// Additional arguments for get_terms() function. Optional
+				'args' => array()
+			)
+		),
+		// TAGS - TAXONOMY
+		array(
+			'name'    => 'Tags',
+			'id'      => "{$prefix}tags",
+			'desc' => 'Please select any tags that apply to this story; you may select multiple values',
+			'type'    => 'taxonomy',
+			'options' => array(
+				// Taxonomy name
+				'taxonomy' => 'post_tag',
+				// How to show taxonomy: 'checkbox_list' (default) or 'checkbox_tree', 'select_tree' or 'select'. Optional
+				'type' => 'checkbox_list',
+				'multiple' => true,
+				// Additional arguments for get_terms() function. Optional
+				'args' => array()
+			)
 		)
 	)
 );
@@ -138,15 +178,31 @@ $meta_boxes[] = array(
 	'priority' => 'high',
 
 	'fields' => array(
-	
+		// TAXONOMY
+		array(
+			'name'    => 'Media',
+			'id'      => "{$prefix}media",
+			'desc' => 'Please select the medium (media) of this story; you may select multiple values',
+			'type'    => 'taxonomy',
+			'options' => array(
+				// Taxonomy name
+				'taxonomy' => 'media_types',
+				// How to show taxonomy: 'checkbox_list' (default) or 'checkbox_tree', 'select_tree' or 'select'. Optional
+				'type' => 'checkbox_list',
+				'multiple' => true,
+				// Additional arguments for get_terms() function. Optional
+				'args' => array()
+			),
+		),
+		
 		// PLUPLOAD IMAGE UPLOAD (WP 3.3+)
 		array(
 			'name'             => 'Upload Images',
 			'id'               => "{$prefix}images",
 			// Field description (optional)
-			'desc'  => 'If this story includes additional images, please upload the files (up to 5) here.  Acceptable formats include : PNG, GIF, JPG.  Bigger and better quality is best.',
+			'desc'  => 'If this story includes additional images, please upload the files (up to 10) here.  Acceptable formats include : PNG, GIF, JPG.  Bigger and better quality is best.',
 			'type'             => 'plupload_image',
-			'max_file_uploads' => 5
+			'max_file_uploads' => 10
 		),
 		// AUDIO UPLOAD
 		array(
