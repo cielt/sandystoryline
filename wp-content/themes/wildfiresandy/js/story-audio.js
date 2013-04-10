@@ -3,7 +3,7 @@ var MediaPlayer = {};
 jQuery(document).ready(function($) {
 
 	MediaPlayer.playerBox = $(".player");
-	 var playerW = MediaPlayer.playerBox.parent().width();
+	 var playerW = MediaPlayer.playerBox.width();
 	console.log("player parent container width:"+playerW);
 	
 	//setup
@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
 	
 	if (MediaPlayer.playerBox){
 		var newPlayer = new MediaElementPlayer(MediaPlayer.storyaudio, {
-			audioWidth: playerW,
+			audioWidth: '100%',
 			audioHeight: 30,
 			startVolume: 0.8,
 			loop: false,

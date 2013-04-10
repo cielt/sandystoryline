@@ -61,7 +61,7 @@ get_header(); ?>
 						</div>	
 					<?php endif; ?>
 				<?php endif; ?>
-				<a class="storyline" href="<?php the_permalink(); ?>">
+				<a class="storyline" href="<?php the_permalink(); ?>" hash="#<?php echo($post->post_name) ?>">
 					<div class="content-container-spacing">
 						<h6 class="post-type-header"><?php _e('Blog','progression'); ?></h6>
 						<h4><?php the_title(); ?></h4>

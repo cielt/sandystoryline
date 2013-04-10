@@ -158,6 +158,7 @@ function sandy_scripts() {
 	
 	//stories page 
 	if ( is_page_template('page-stories.php')  ) {
+		wp_enqueue_script( 'bbq', get_stylesheet_directory_uri() . '/js/libs/jquery.ba-bbq.min.js', array( 'jquery' ), '20120409', false );
 	 	wp_enqueue_script( 'colorbox', get_stylesheet_directory_uri() . '/js/libs/jquery.colorbox-min.js', array( 'jquery' ), '20120320', false );
 		wp_enqueue_script( 'storyline', get_stylesheet_directory_uri() . '/js/storyline.js', array( 'jquery' ), '20120320', false );
 	 	wp_enqueue_style( 'colorbox-css', get_stylesheet_directory_uri() . '/css/colorbox-sandy.css', array( 'style' ) );
