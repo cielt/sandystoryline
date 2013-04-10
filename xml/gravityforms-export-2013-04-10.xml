@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms version="1.6.12">
+	<form labelPlacement="top_label" useCurrentUserAsAuthor="1" postAuthor="2" postCategory="1" postFormat="0" postStatus="draft">
+		<title><![CDATA[New Story]]></title>
+		<description><![CDATA[Please submit your story.]]></description>
+		<confirmation type="redirect">
+			<url><![CDATA[http://sandy.localhost:8888/submit-a-story/]]></url>
+			<queryString><![CDATA[story_id={post_id}]]></queryString>
+		</confirmation>
+		<button type="text">
+			<text><![CDATA[Submit]]></text>
+		</button>
+		<fields>
+			<field id="4" size="medium" type="post_title">
+				<label><![CDATA[Story Title]]></label>
+				<saveAsCPT><![CDATA[story]]></saveAsCPT>
+			</field>
+			<field id="2" size="medium" type="post_content">
+				<label><![CDATA[Story Description]]></label>
+			</field>
+		</fields>
+		<descriptionPlacement><![CDATA[below]]></descriptionPlacement>
+		<notification>
+			<to><![CDATA[{admin_email}]]></to>
+			<subject><![CDATA[New submission from {form_title}]]></subject>
+			<message><![CDATA[{all_fields}]]></message>
+		</notification>
+	</form>
+</forms>
