@@ -165,4 +165,12 @@ function sandy_scripts() {
 	
 }
 add_action( 'wp_enqueue_scripts', 'sandy_scripts' );
+
+// added to avoid acf front end form conflicts with styles
+// see http://www.advancedcustomfields.com/resources/tutorials/creating-a-front-end-form/
+add_action( 'wp_print_styles', 'my_deregister_styles', 100 );
+function my_deregister_styles() {
+	 wp_deregister_style( 'wp-admin' );
+}
+
 ?>
