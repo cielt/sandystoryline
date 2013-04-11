@@ -13,7 +13,7 @@ body, #footer-widgets, body p {
 body.home #main, body.page-template-page-info-php #main, body.single-story #main { padding-top: 0; }
 body.home #main {  background-color: #fff; }
 body #logo {
-	margin: 22px 0;
+	margin: 12px 0; /* 12*2 + 107 = 131 */
 }
 
 body #logo a img { width: 100%; height: auto; }
@@ -32,16 +32,17 @@ body p, body ul { color: #000; }
 
 /* =GLOBAL NAV 
 ---------------------------------------------------- */
-.bar-controls { width: 684px; float: left; margin-left: 32px; } /* 584 + 16 + 84 */
+.bar-controls { width: 740px; float: left; margin-left: 32px; } /* 584 + 16 + 84 */
 .bar-controls .wrapper-nav { float: left; }
 .bar-controls .social-icons { float: right; margin-left: 16px; }
 .sf-menu a, .sf-menu a:visited {
-	font-size: 18pt; font-weight: normal;
+	font-size: 13pt; font-weight: bold;
 }
-.bar-controls .sf-menu a {padding:48px 16px 42px 16px; }  
+.bar-controls .sf-menu a {padding:60px 16px 54px; } /* 60 + 17 + 54 = 131 */ 
+.bar-controls .sf-menu a:hover { color: #f26222; }  
 .sf-menu li:hover ul, .sf-menu li.sfHover ul {top:114px;} /* Move sub-menu down */
 
-h1, h2, h3, h4, h5, h6 { font-weight: normal; font-family: 'LeagueGothicRegular', sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-family: 'Open Sans', sans-serif; }
 a, h3 a:hover, .content-container a:hover h4, .content-container a:hover h6.post-type-header {color:#1f85bc; }
 address { font-style: normal; margin: 0 0 2em;  }
 a.progression-medium {  
@@ -69,13 +70,13 @@ a.progression-medium {
 	margin-right: 54px; /* button width + button margin : 34 + 20 */
 }
 
-.flex-caption, h1 { font-family: 'LeagueGothicRegular', sans-serif; }
+.flex-caption, h1 { font-family: 'Open Sans', sans-serif; }
 
 /* =HEADER 
 ---------------------------------------------------- */
-header .social-icons a { color: #fff; font-size: 24px; line-height: 32px; padding: 0 8px; background-color: transparent; }
+header .social-icons a { color: #f26222; font-size: 24px; line-height: 32px; padding: 0 8px; background-color: transparent; }
 header .social-icons a.twitter { font-size: 26px; line-height: 26px; }  /* adjustments for twitter ico */
-header .social-icons a:hover { color: #facb4b; background-color: transparent; }
+header .social-icons a:hover { color: #232f46; background-color: transparent; }
 .lt-ie9 .social-icons a { padding:10px 9px 10px 8px; margin-top:-5px; background-image:url(images/transparency-fallback.png);}
 
 header .social-icons a:before, header .social-icons a:after {
@@ -84,10 +85,10 @@ header .social-icons a:before, header .social-icons a:after {
 
 h1.page-title, h1.page-title a {
 	color: #000;
-	font-size: 36pt;
+	font-size: 26pt;
 	margin-bottom: 0;
 	padding-bottom:0;
-	font-family: 'LeagueGothicRegular', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 h1.page-title.margin-b { margin-bottom: 25px; }
@@ -111,7 +112,8 @@ footer #footer-widgets .social-icons { display: block; }
 #footer-widgets { font-size: 0.9em; }
 #footer-widgets .widget { margin-bottom: 20px; }
 #footer-widgets h5 {
-	font-size: 18pt;
+	font-size: 13pt;
+	font-weight: bold;
 }
 #footer-widgets p { margin: 20px 0; }
 
@@ -145,7 +147,7 @@ span.ico { display: block; width: 74px; height: 74px; margin: 0 auto 20px; }
 span.ico img { width: 100%; }
 .callout h5 { font-size: 21pt; text-transform: uppercase; margin-bottom:0; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,0.2);  }
 .callout address.info-share, div.share-line { 
-	color: #facb4b; font-style: normal; font-size: 21pt; font-family: 'LeagueGothicRegular', sans-serif; 
+	color: #facb4b; font-style: normal; font-size: 21pt; font-family: 'Open Sans', sans-serif; 
 	margin-bottom: 0; text-shadow: 1px 1px 1px rgba(0,0,0,0.2); }
 .callout address.info-share a { color: #facb4b; }
 .callout address.info-share span.blue-text { color: #2086bb; }

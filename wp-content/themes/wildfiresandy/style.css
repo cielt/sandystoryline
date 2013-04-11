@@ -85,9 +85,9 @@ a.progression-medium {
 
 /* =HEADER 
 ---------------------------------------------------- */
-#sticky-navigation header .social-icons a { color: #fff; font-size: 24px; line-height: 32px; padding: 0 8px; background-color: transparent; }
+#sticky-navigation header .social-icons a { color: #f26222; font-size: 24px; line-height: 32px; padding: 0 8px; background-color: transparent; }
 #sticky-navigation header .social-icons a.twitter { font-size: 26px; line-height: 26px; }  /* adjustments for twitter ico */
-#sticky-navigation header .social-icons a:hover { color: #facb4b; background-color: transparent; }
+#sticky-navigation header .social-icons a:hover { color: #232f46; background-color: transparent; }
 .lt-ie9 .social-icons a { padding:10px 9px 10px 8px; margin-top:-5px; background-image:url(images/transparency-fallback.png);}
 
 header .social-icons a:before, header .social-icons a:after {
@@ -96,7 +96,7 @@ header .social-icons a:before, header .social-icons a:after {
 
 h1.page-title, h1.page-title a {
 	color: #000;
-	font-size: 36pt;
+	font-size: 26pt;
 	margin-bottom: 0;
 	padding-bottom:0;
 }
@@ -156,7 +156,7 @@ span.ico { display: block; width: 74px; height: 74px; margin: 0 auto 20px; }
 span.ico img { width: 100%; }
 .callout h5 { font-size: 21pt; text-transform: uppercase; margin-bottom:0; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,0.2);  }
 .callout address.info-share, div.share-line { 
-	color: #facb4b; font-style: normal; font-size: 21pt; font-family: 'LeagueGothicRegular', sans-serif; 
+	color: #facb4b; font-style: normal; font-size: 21pt; font-family: 'Open Sans', sans-serif; 
 	margin-bottom: 0; text-shadow: 1px 1px 1px rgba(0,0,0,0.2); }
 .callout address.info-share a { color: #facb4b; }
 .callout address.info-share span.blue-text { color: #2086bb; }
