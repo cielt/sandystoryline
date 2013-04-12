@@ -124,10 +124,6 @@ register_taxonomy(
 		)
 	);
 
-/* STORY : metaboxes 
-   Add the Story Meta Boxes via story-metaboxes.php */ 
-
-
 
 
 /**
@@ -139,10 +135,11 @@ function sandy_scripts() {
 	wp_enqueue_style( 'sandyfonts', get_stylesheet_directory_uri() . '/css/webfonts.css', array( 'style' ) );
 
 	if ( is_page_template('page-cowbird.php')  ) {
-		wp_enqueue_script( 'cowbird-jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', array( 'jquery' ), '20121104', false );
-		wp_enqueue_script( 'cowbird-embed', 'http://cdn1.cowbird.com/assets/js/embed/cb-embedded.js', array( 'jquery' ), '20120206', false );
+		wp_deregister_script('jquery'); /* need < v1.9.* */
+		wp_enqueue_script( 'cowbird-jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', array(), '20121104', false );
+		wp_enqueue_script( 'cowbird-embed', 'http://cdn1.cowbird.com/assets/js/embed/cb-embedded.js', array( 'cowbird-jquery' ), '20120206', false );
 	 	wp_enqueue_style( 'cowbird-css', 'http://cdn1.cowbird.com/assets/css/embed/cb-embedded.css', array( 'style' ) );
-		wp_enqueue_script( 'cowbird-sandy', get_stylesheet_directory_uri() . '/js/cowbird-galleries.js', array( 'jquery' ), '20120402', false );
+		wp_enqueue_script( 'cowbird-sandy', get_stylesheet_directory_uri() . '/js/cowbird-galleries.js', array( 'cowbird-jquery' ), '20120402', false );
 	 }
 	
 	//story audio 

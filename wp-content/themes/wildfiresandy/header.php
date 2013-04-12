@@ -34,7 +34,6 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<?php wp_head(); ?>
 
-
 	<?php echo '<style type="text/css">'; ?>
 		body #logo img {max-width:<?php echo of_get_option('logo_width'); ?>px;}
 		body, .sf-menu li.sfHover li a, .sf-menu li.sfHover li a:visited, .sf-menu li.sfHover li li a, .sf-menu li.sfHover li li a:visited, .sf-menu li.sfHover li li li a, .sf-menu li.sfHover li li li a:visited, .sf-menu li.sfHover li li li li a, .sf-menu li.sfHover li li li li a:visited { font-family:"<?php echo of_get_option('main_font', 'Helvetica Neue'); ?>", Helvetica, Arial, Sans-Serif;}
@@ -51,10 +50,6 @@
 	<script type="text/javascript">
 	var templateDir = "<?php bloginfo('stylesheet_directory'); ?>";
 	</script>
-
-
-
-
 
 </head>
 

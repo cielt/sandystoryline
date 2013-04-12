@@ -48,7 +48,7 @@ body p, body ul { color: #000; }
 .bar-controls .wrapper-nav { float: left; }
 .bar-controls .social-icons { float: right; margin-left: 16px; }
 .sf-menu a, .sf-menu a:visited {
-	font-size: 13pt; font-weight: bold;
+	font-size: 13pt; font-weight: 700;
 }
 .bar-controls .sf-menu a {padding:60px 16px 54px; } /* 60 + 17 + 54 = 131 */ 
 .bar-controls .sf-menu a:hover { color: #f26222; }  
@@ -98,7 +98,7 @@ header .social-icons a:before, header .social-icons a:after {
 h1.page-title, h1.page-title a {
 	color: #000;
 	font-size: 24pt;
-	font-weight: bold;
+	font-weight: 700;
 	margin-bottom: 0;
 	padding-bottom:0;
 }
@@ -125,7 +125,7 @@ footer #footer-widgets .social-icons { display: block; }
 #footer-widgets .widget { margin-bottom: 20px; }
 #footer-widgets h5 {
 	font-size: 17px;
-	font-weight: bold;
+	font-weight: 700;
 }
 #footer-widgets p { margin: 20px 0; }
 
@@ -143,13 +143,13 @@ footer #footer-widgets .social-icons { display: block; }
 
 /* =HOME CTA 
 ---------------------------------------------------- */
-#share-callouts { background-color: transparent; padding: 30px 0 10px; } /* complement 20px bottom from #main */
+#share-callouts { background-color: transparent; padding: 22px 0 15px; } /* complement 20px bottom from #main */
 
 #share-callouts h3 { 
-	font-size: 21pt; text-transform: uppercase; line-height: 1em; padding: 0; 
-	font-weight: bold; margin: 0 0 15px; color: #232f46;
+	font-size: 28pt; text-transform: uppercase; line-height: 1em; padding: 0; 
+	font-weight: 700; margin: 0 0 25px; color: #232f46;
 }
-.callout { background: rgba(35,47,70, 0.8); text-align: center; padding: 15px 0; }
+.callout { background-color: #232f46; text-align: center; padding: 15px 0; }
 .callout:hover { -moz-box-shadow: 0px 4px 8px rgba(0,0,0,.4); -webkit-box-shadow: 0px 4px 8px rgba(0,0,0,.4); box-shadow:  0px 4px 8px rgba(0,0,0,.4); }
 
 span.ico { 
@@ -161,22 +161,24 @@ span.ico {
   	background-clip: padding-box;
 }
 
-.callout h5 { font-size: 16pt; text-transform: uppercase; font-weight: bold; 
+.callout h5 { font-size: 16pt; text-transform: uppercase; font-weight: 700; 
 	margin-bottom:0; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,0.2);  
 }
 .callout address.info-share, div.share-line { 
 	color: #f26222; font-style: normal; font-size: 16pt; 
 	font-family: 'Open Sans', sans-serif; 
 	margin-bottom: 0; text-shadow: 1px 1px 1px rgba(0,0,0,0.2); 
-	font-weight: bold;
+	font-weight: 700;
 }
 
 .callout address.info-share a { color: #f26222; }
 
 
 /* FILTER child links */
+ul.filter-children { margin: 10px 0; }
+
 ul.filter-children li a {
-	font-size: 10pt;
+	font-size: 10pt; font-weight: 700;
 }
 
 ul.filter-children li a:hover, ul.filter-children li.current_page_item a {
@@ -208,7 +210,7 @@ blockquote.quote-block { font-size: 1.5em; font-weight: normal; font-style: norm
 	background-position: 0 1em;
 }
 address.quote-author { padding-left: 40px; }
-address.quote-author span.author { display : block; font-weight: bold; font-size: 1.1em; color: #333; }
+address.quote-author span.author { display : block; font-weight: 700; font-size: 1.1em; color: #333; }
 address.quote-author span.author-deets { display : block; font-style: italic; font-size: 0.9em; }
 
 
@@ -235,7 +237,7 @@ address.quote-author span.author-deets { display : block; font-style: italic; fo
 /* =MEDIA / RESPONSIVE 
 ---------------------------------------------------- */
 @media only screen and (min-width: 959px) and (max-width: 1140px) {
-	.bar-controls { width: 584px; }
+	.bar-controls { width: 640px; }
  	.bar-controls .social-icons { display: none; } /* 886 */
 	
 }
@@ -245,20 +247,15 @@ address.quote-author span.author-deets { display : block; font-style: italic; fo
 	.bar-controls { width: 460px; }
 	.bar-controls .social-icons { display: none; }
 	.sf-menu a, .sf-menu a:visited {
-	font-size: 16pt; font-weight: normal;
-}
-.bar-controls .sf-menu a {padding:48px 8px 42px 8px; }  
+		font-size: 13pt; font-weight: 700;
+	}
+
+.bar-controls .sf-menu a {padding: 28px 12px 22px 12px; }  
 
 }
 
 @media only screen and (max-width: 767px) {
 	header { padding-top: 20px; }	
-	.width-25, .width-75 { width: 100%; float: none; text-align: center; line-height: normal; margin: 0 0 15px; }
-	table.scaffold { height: auto; }
-	table.scaffold td { text-align: center; }
-	.wrapper-callouts h3 { font-size: 35pt; padding: 0; text-align: center; }
-	.callout.col-3 { display: block; width: 100%; float: none; margin: 0; }
 	.bar-controls { width: auto; float: none; margin: 0; }
-	.bar-controls .wrapper-nav, .bar-controls .social-icons { display: block; width: 100%; float: none; clear: both; }
-	
+	.bar-controls .wrapper-nav, .bar-controls .social-icons { display: block; width: 100%; float: none; clear: both; }	
 }
