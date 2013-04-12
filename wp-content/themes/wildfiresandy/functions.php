@@ -6,10 +6,6 @@
  * @since progression 1.0
  */
 
-// STORY post type metaboxes
-//include('story-metaboxes.php');
-
-
 
 
 /* STORY custom post type */
@@ -140,12 +136,10 @@ register_taxonomy(
 function sandy_scripts() {
 
 	wp_enqueue_style( 'sandyfonts-opensans', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', array( 'style' ) );
-	wp_enqueue_style( 'sandyfonts-leaguegothic', get_stylesheet_directory_uri() . '/css/league-gothic.css', array( 'style' ) );
-	wp_enqueue_style( 'sandystyles', get_stylesheet_directory_uri() . '/css/sandy.css', array( 'style' ) );
-	
-	//cowbird collection embed script 
+	wp_enqueue_style( 'sandyfonts', get_stylesheet_directory_uri() . '/css/webfonts.css', array( 'style' ) );
+
 	if ( is_page_template('page-cowbird.php')  ) {
-	
+		wp_enqueue_script( 'cowbird-jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', array( 'jquery' ), '20121104', false );
 		wp_enqueue_script( 'cowbird-embed', 'http://cdn1.cowbird.com/assets/js/embed/cb-embedded.js', array( 'jquery' ), '20120206', false );
 	 	wp_enqueue_style( 'cowbird-css', 'http://cdn1.cowbird.com/assets/css/embed/cb-embedded.css', array( 'style' ) );
 		wp_enqueue_script( 'cowbird-sandy', get_stylesheet_directory_uri() . '/js/cowbird-galleries.js', array( 'jquery' ), '20120402', false );
