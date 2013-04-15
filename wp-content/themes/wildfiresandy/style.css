@@ -29,7 +29,7 @@ body #logo {
 }
 
 body #logo a img { width: 100%; height: auto; }
-body p, body ul { color: #000; }
+body p, body ul { color: #232f46; }
 #main, body #main { position: relative; z-index: 3; }
 
 /* cross-browser inline-block from http://bit.ly/KuaPpr */
@@ -44,15 +44,32 @@ body p, body ul { color: #000; }
 
 /* =GLOBAL NAV 
 ---------------------------------------------------- */
+header { background-color: #fff; }
 .bar-controls { width: 898px; float: left; margin-left: 32px; } 
 .bar-controls .wrapper-nav { float: left; }
 .bar-controls .social-icons { float: left; margin-left: 32px; }
+
+.sf-menu ul, .sf-menu ul ul, .sf-menu ul ul ul {
+	background-color: transparent;
+}
 .sf-menu a, .sf-menu a:visited {
-	font-size: 13pt; font-weight: 700;
+	font-size: 13pt; font-weight: 800;
 }
 .bar-controls .sf-menu a {padding:60px 16px 54px; } /* 60 + 17 + 54 = 131 */ 
-.bar-controls .sf-menu a:hover { color: #f26222; }  
+.bar-controls .sf-menu a:hover { 
+	color: #f26222; 
+}  
 .sf-menu li:hover ul, .sf-menu li.sfHover ul {top:114px;} /* Move sub-menu down */
+
+/* dropdowns */
+.bar-controls .sf-menu li li a {
+	padding: 15px 16px;
+	font-weight: 800;
+	background-color: rgba(255,255,255,0.8);
+}
+
+.bar-controls .sf-menu li li a:hover { background-color: #fff; }
+
 
 h1, h2, h3, h4, h5, h6 { font-weight: 700; font-family: 'Open Sans', sans-serif; }
 a, h3 a:hover, .content-container a:hover h4, .content-container a:hover h6.post-type-header {color:#1f85bc; }
@@ -79,7 +96,8 @@ a.progression-medium {
 .flex-caption .caption-heading {
 	background: rgba(35,47,70, 0.8);
 	margin-right: 54px; /* button width + button margin : 34 + 20 */
-	font-size: 28px;
+	font-size: 26px;
+	font-weight: 800;
 }
 
 
@@ -97,9 +115,9 @@ header .social-icons a:before, header .social-icons a:after {
 }
 
 h1.page-title, h1.page-title a {
-	color: #000;
+	color: #232f46;
 	font-size: 24pt;
-	font-weight: 700;
+	font-weight: 800;
 	margin-bottom: 0;
 	padding-bottom:0;
 }
@@ -108,7 +126,7 @@ h1.page-title.margin-b { margin-bottom: 25px; }
 
 h1.page-title a:hover { color: #f26222; }
 
-h3.gallery-type { text-transform: uppercase; font-size: 21pt; 
+h3.gallery-type { text-transform: uppercase; font-size: 16pt; 
 	margin: 0 0 15px;
 }
 
@@ -126,7 +144,7 @@ footer #footer-widgets .social-icons { display: block; }
 #footer-widgets .widget { margin-bottom: 20px; }
 #footer-widgets h5 {
 	font-size: 17px;
-	font-weight: 700;
+	font-weight: 800;
 }
 #footer-widgets p { margin: 20px 0; }
 
@@ -148,7 +166,7 @@ footer #footer-widgets .social-icons { display: block; }
 
 #share-callouts h3 { 
 	font-size: 28pt; text-transform: uppercase; line-height: 1em; padding: 0; 
-	font-weight: 700; margin: 0 0 25px; color: #232f46;
+	font-weight: 800; margin: 0 0 25px; color: #232f46;
 }
 .callout { background-color: #232f46; text-align: center; padding: 15px 0; }
 .callout:hover { -moz-box-shadow: 0px 4px 8px rgba(0,0,0,.4); -webkit-box-shadow: 0px 4px 8px rgba(0,0,0,.4); box-shadow:  0px 4px 8px rgba(0,0,0,.4); }
@@ -162,14 +180,14 @@ span.ico {
   	background-clip: padding-box;
 }
 
-.callout h5 { font-size: 16pt; text-transform: uppercase; font-weight: 700; 
+.callout h5 { font-size: 16pt; text-transform: uppercase; font-weight: 800; 
 	margin-bottom:0; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,0.2);  
 }
 .callout address.info-share, div.share-line { 
 	color: #f26222; font-style: normal; font-size: 16pt; 
 	font-family: 'Open Sans', sans-serif; 
 	margin-bottom: 0; text-shadow: 1px 1px 1px rgba(0,0,0,0.2); 
-	font-weight: 700;
+	font-weight: 800;
 }
 
 .callout address.info-share a { color: #f26222; }
@@ -179,7 +197,7 @@ span.ico {
 ul.filter-children { margin: 10px 0; }
 
 ul.filter-children li a {
-	font-size: 10pt; font-weight: 700;
+	font-size: 10pt; font-weight: 800;
 }
 
 ul.filter-children li a:hover, ul.filter-children li.current_page_item a {
@@ -211,7 +229,7 @@ blockquote.quote-block { font-size: 1.5em; font-weight: normal; font-style: norm
 	background-position: 0 1em;
 }
 address.quote-author { padding-left: 40px; }
-address.quote-author span.author { display : block; font-weight: 700; font-size: 1.1em; color: #333; }
+address.quote-author span.author { display : block; font-weight: 800; font-size: 1.1em; color: #333; }
 address.quote-author span.author-deets { display : block; font-style: italic; font-size: 0.9em; }
 
 
@@ -247,10 +265,10 @@ address.quote-author span.author-deets { display : block; font-style: italic; fo
 	.bar-controls { width: 460px; }
 	.bar-controls .social-icons { display: none; }
 	.sf-menu a, .sf-menu a:visited {
-		font-size: 13pt; font-weight: 700;
+		font-size: 13pt; font-weight: 800;
 	}
 
-.bar-controls .sf-menu a {padding: 28px 12px 22px 12px; }  
+.bar-controls .sf-menu a { padding-left: 12px; padding-right: 12px; }  
 
 }
 

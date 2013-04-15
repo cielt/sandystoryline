@@ -131,7 +131,7 @@ register_taxonomy(
  */
 function sandy_scripts() {
 
-	wp_enqueue_style( 'sandyfonts-opensans', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', array( 'style' ) );
+	wp_enqueue_style( 'sandyfonts-opensans', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800', array( 'style' ) );
 	wp_enqueue_style( 'sandyfonts', get_stylesheet_directory_uri() . '/css/webfonts.css', array( 'style' ) );
 
 	if ( is_page_template('page-cowbird.php')  ) {
