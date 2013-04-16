@@ -158,18 +158,25 @@ function sandy_scripts() {
 	
 	//galleria page 
 	if ( is_page_template('page-galleria.php')  ) {
+		//remove preloaded stuff we don't need
+		wp_deregister_style('shortcodes');
 		wp_deregister_script('jquery'); /* need < v1.9.* */
+		wp_deregister_script('modernizr');
+		wp_deregister_script('plugins');
+		wp_deregister_script('scripts');
+		wp_deregister_script('shortcodes');
+		
 		wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js', false, '');
         wp_enqueue_script('jquery');
 		wp_enqueue_script( 'galleria', get_stylesheet_directory_uri() . '/js/galleria/galleria-1.2.9.min.js', array( 'jquery' ), '20120320', false );
 		wp_enqueue_script( 'galleria-azur', get_stylesheet_directory_uri() . '/js/galleria/themes/azur/galleria.azur.min.js', array( 'jquery', 'galleria' ), '20120320', false );
 		wp_enqueue_style( 'galleria-azur-css', get_stylesheet_directory_uri() . '/js/galleria/themes/azur/galleria.azur.css', array( 'style' ) );
-		//wp_enqueue_script( 'sandygallery', get_stylesheet_directory_uri() . '/js/sandy-gallery.js', array( 'jquery', 'galleria', 'galleria-azur'), '20120320', false );
+
 	 }
 	
 	
 }
-add_action( 'wp_enqueue_scripts', 'sandy_scripts' );
+add_action( 'wp_enqueue_scripts', 'sandy_scripts', 11 ); //default (parent) priority : 10
 
 // added to avoid acf front end form conflicts with styles
 // see http://www.advancedcustomfields.com/resources/tutorials/creating-a-front-end-form/

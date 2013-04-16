@@ -34,15 +34,14 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<?php wp_head(); ?>
 	<style type="text/css" media="screen">
-		body.page-template-page-galleria-php, body.page-template-page-galleria-php #main { background-color: #222; }
+		body.page-template-page-galleria-php, body.page-template-page-galleria-php #main { background-color: #222; padding: 0; }
+		body.page-template-page-galleria-php #main { padding: 0; }
 		body.page-template-page-galleria-php header, body.page-template-page-galleria-php footer { display: none; }
-		body #logo.compact img { max-width: 120px; }
 		body.page-template-page-galleria-php .content-container { background-color: transparent; border: none; }
-		header h1.align-right { width:auto; text-align: right; margin: 12px 0; line-height: 64px; }
+
 		#wrapper-page #wrapper-content { position: relative; z-index: 1; }
-		#wrapper-page h1 { font-size: 1.8em; margin: 0 auto 24px; position: relative; }
-		#wrapper-gallery { width: 100%; height: 480px; }
-		#galleria { width: 100%; height: 100%; margin: 0 auto 24px; display: none; position: relative; z-index: 3; }
+		#wrapper-gallery { width: 100%; height: 75%; max-height: 768px; }
+		#galleria { width: 100%; height: 100%; margin: 0 auto; display: none; position: relative; z-index: 3; }
 		#wrapper-galleria #status { 
 		position: absolute; z-index: 9; top: 24px; right: 0; width: 320px; padding: 12px; font-size: 10pt; 
 		background-color: #f26222; color: #fff; 
@@ -55,7 +54,6 @@
 		display:none; background:#000 url(<?php echo (get_stylesheet_directory_uri().'/js/galleria/themes/azur/loader-ssl.gif') ?> no-repeat center center; filter: alpha(opacity=48); 
 		-moz-opacity:0.48; opacity:0.48; line-height:150px; border-radius:6px }
 	
-		#wrapper-content #loader img { vertical-align: middle; margin: 20% auto; }
 	</style>
 	<script type="text/javascript">
 		var templateDir = "<?php bloginfo('stylesheet_directory'); ?>";

@@ -9,7 +9,7 @@
 
 	SandyGallery.setup = function(){
 		Galleria.configure({
-			height: 0.75,
+			height: 768,
 			autoplay: 3000,
 			transition: 'fadeslide',
 			imageCrop: 'height',
