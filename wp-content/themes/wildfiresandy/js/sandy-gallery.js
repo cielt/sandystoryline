@@ -9,11 +9,15 @@
 
 	SandyGallery.setup = function(){
 		Galleria.configure({
+			height: 0.75,
+			autoplay: 3000,
 			transition: 'fadeslide',
 			imageCrop: 'height',
+			showInfo: true,
 			debug: true,
-			carouselSpeed: 600,
-			wait: true
+			transitionSpeed: 1200,
+			wait: true,
+			idleMode : false
 		});	
 	};
 
@@ -21,12 +25,6 @@
 		//cache the gallery
 		SandyGallery.gallery = jQuery('#galleria');
 		var statusBar = jQuery("#status"); 
-		//var newsBar = jQuery("#news");
-		// create & append loader growl
-		/*var loader = jQuery('<div>', {
-		id: 'loader'
-		}).appendTo('#wrapper-gallery');
-		*/
 		var loader = jQuery("#ssl-loader");
 
 		//CALL our functions
@@ -34,34 +32,34 @@
 
 		(function makeRequest() {
 		    jQuery.ajax({
-							beforeSend : function(){ loader.show(); },
-							type: "GET",
-							cache : false,
-							url: templateDir+"/scripts/rss-feed-data.php",
-							dataType: "json"
-						}).success(function(xdata) {
-							//console.log( "data : " + JSON.stringify(xdata)+xdata.stories.channel.item );
-							dataCheck(xdata);
-							loader.hide();
-							SandyGallery.gallery.show();
+			   beforeSend : function(){ loader.show(); },
+			   type: "GET",
+			   cache : false,
+			   url: templateDir+"/scripts/rss-feed-data.php",
+			   dataType: "json"
+			}).success(function(xdata) {
+				//console.log( "data : " + JSON.stringify(xdata)+xdata.stories.channel.item );
+				dataCheck(xdata);
+				loader.hide();
+				SandyGallery.gallery.show();
 		
-						}).error(function(){ 
-							//console.log("error"); 
-						});
+				}).error(function(){ 
+					console.log("error"); 
+				});
 		    setTimeout(makeRequest, refreshInterval);
 		})();
 
 
 			//DATA READY handler 
 			SandyGallery.gallery.bind("dataReady", function(e){
-				//console.log("dataReady!");
+				console.log("dataReady!");
 
 				//update current galleryData
 
 				// 1) do we have new entries? check date posted
 				//will update at least on initial run
 				if(e.oNewData.length){
-					//console.log(e.oNewData.length+"new items found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+					console.log(e.oNewData.length+"new items found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
 					jQuery.event.trigger({
 						type : "newData",
@@ -78,32 +76,37 @@
 
 				//NEW DATA handler : (re)load up galleria	
 				SandyGallery.gallery.bind("newData", function(e){
-					//console.log("newData!"+e.oToAddData);
+					console.log("//////////////////////////////////////////// newData!"+e.oToAddData);
 					// check if galleria has been initialized
 					if (SandyGallery.gallery.data('galleria')) {
-
-						//console.log("reload gallery: "+e.oToAddData);
-						//SandyGallery.gallery.data('galleria').load(e.oToAddData);
-						SandyGallery.gallery.data('galleria').push(e.oToAddData);
-						//and update current galleryData array
-						galleryData = SandyGallery.gallery.galleria.dataSource;
-						//console.log("----------------------------------------PUSH to gallery : now "+galleryData.length+" items");
+						var sandyGal = SandyGallery.gallery.data('galleria');
+						console.log("reload gallery: "+e.oToAddData);
+						sandyGal.push(e.oToAddData);
+						//splice new stories into start of current array
+						//sandyGal.splice(0, 0, e.oToAddData);
+						//update galleryData
+						galleryData.push(e.oToAddData);
+								
+						/*var index = sandyGal.getIndex();
+        					setTimeout(function () {
+            					sandyGal.show(0);
+        					}, 50);
+						*/
+						//keep in fullscreen!
+						
+						console.log("----------------------------------------SPLICE to gallery : now "+galleryData.length+" items in galleryData");
 
 						// else initialize galleria (1st time)
 					} else {
 						galleryData = e.oToAddData;
 						SandyGallery.gallery.galleria({
 							// add the data as dataSource
-							dataSource: galleryData,
-							trueFullscreen: true
+							dataSource: galleryData
 						});
-						//console.log("----------------------------------------INIT gallery with "+galleryData.length+" items");
+						console.log("----------------------------------------INIT gallery with "+galleryData.length+" items");
 
 					}
 
-					//newsBar.text("new story added");
-					//newsBar.css({ 'background-color' : "rgba("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+
-					//	parseInt(Math.random()*255)+","+ Math.random() +")" });
 				});
 
 
@@ -111,7 +114,7 @@
 			});
 
 			var dataCheck = function(jsonData){
-				//console.log("dataCheck called: "+jsonData.stories.channel.item.length);
+				console.log("dataCheck called: "+jsonData.stories.channel.item.length);
 				var lastUpdated = jsonData.date;
 
 				//reset the latest feed items array & new items flag
@@ -141,7 +144,6 @@
 							image : itemImageSrc,
 							title : current.title,
 							description : shortDesc,
-							link : current.link,
 							pubdate : pubDate
 						});
 						//console.log(current);
@@ -152,7 +154,7 @@
 				numNew = tempArray.length - galleryData.length;
 				//get just the new items
 				newGalItems = tempArray.splice(0, numNew);
-				//console.log("passing on "+newGalItems.length+" gal items");
+				console.log("passing on "+newGalItems.length+" gal items");
 
 				//AFTER LOOP : trigger event : data ready
 				jQuery.event.trigger({
