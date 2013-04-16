@@ -50,7 +50,7 @@ header { background-color: #fff; }
 .bar-controls .social-icons { float: left; margin-left: 32px; }
 
 .sf-menu ul, .sf-menu ul ul, .sf-menu ul ul ul {
-	background-color: transparent;
+	background-color: transparent!important;
 }
 .sf-menu a, .sf-menu a:visited {
 	font-size: 13pt; font-weight: 800;
@@ -114,7 +114,7 @@ header .social-icons a:before, header .social-icons a:after {
 	display: none; border: none;
 }
 
-h1.page-title, h1.page-title a {
+h1, h1.page-title, h1.page-title a {
 	color: #232f46;
 	font-size: 24pt;
 	font-weight: 800;
@@ -149,7 +149,7 @@ footer #footer-widgets .social-icons { display: block; }
 #footer-widgets p { margin: 20px 0; }
 
 #highlight-container, #marquee-container {
-	background-color: transparent;
+	background: transparent!important;
 	border: none;
 	padding-bottom: 0;
 }
