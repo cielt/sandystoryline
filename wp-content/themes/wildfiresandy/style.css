@@ -72,7 +72,13 @@ header { background-color: #fff; }
 
 
 h1, h2, h3, h4, h5, h6 { font-weight: 700; font-family: 'Open Sans', sans-serif; }
-a, h3 a:hover, .content-container a:hover h4, .content-container a:hover h6.post-type-header { color:#1f85bc; }
+a, h3 a:hover, .content-container a:hover h4, .content-container a:hover h6.post-type-header { color:#232f46; }
+
+/* default body copy link styles */
+.container-spacing a { text-decoration: underline; }
+.container-spacing a:hover { text-decoration: none; }
+
+
 address { font-style: normal; margin: 0 0 2em;  }
 a.progression-medium {  
 	-webkit-border-radius: 4px; 
@@ -183,7 +189,7 @@ span.ico {
 .callout h5 { font-size: 16pt; text-transform: uppercase; font-weight: 800; 
 	margin-bottom:0; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,0.2);  
 }
-.callout address.info-share, div.share-line { 
+.callout address.info-share { 
 	color: #f26222; font-style: normal; font-size: 16pt; 
 	font-family: 'Open Sans', sans-serif; 
 	margin-bottom: 0; text-shadow: 1px 1px 1px rgba(0,0,0,0.2); 
@@ -198,6 +204,8 @@ ul.filter-children { margin: 10px 0; }
 
 ul.filter-children li a {
 	font-size: 10pt; font-weight: 800;
+	color: #232f46;
+	text-decoration: none;
 }
 
 ul.filter-children li a:hover, ul.filter-children li.current_page_item a {
@@ -229,7 +237,7 @@ blockquote.quote-block { font-size: 1.5em; font-weight: normal; font-style: norm
 	background-position: 0 1em;
 }
 address.quote-author { padding-left: 40px; }
-address.quote-author span.author { display : block; font-weight: 800; font-size: 1.1em; color: #333; }
+address.quote-author span.author { display : block; font-weight: 800; font-size: 1.1em; color: #232f46; }
 address.quote-author span.author-deets { display : block; font-style: italic; font-size: 0.9em; }
 
 
@@ -257,7 +265,7 @@ address.quote-author span.author-deets { display : block; font-style: italic; fo
 ---------------------------------------------------- */
 @media only screen and (min-width: 959px) and (max-width: 1140px) {
 	.bar-controls { width: 640px; }
- 	.bar-controls .social-icons { display: none; } /* 886 */	
+ 	.bar-controls .social-icons {  } /* 886 */	
 }
 
 
@@ -268,7 +276,11 @@ address.quote-author span.author-deets { display : block; font-style: italic; fo
 		font-size: 13pt; font-weight: 800;
 	}
 
-.bar-controls .sf-menu a { padding-left: 12px; padding-right: 12px; }  
+	.bar-controls .sf-menu a { padding-left: 12px; padding-right: 12px; } 
+ 	
+	/* reduce callout font-size */
+	.callout h5, .callout address.info-share { font-size: 14pt;  
+	}
 
 }
 
