@@ -38,4 +38,4 @@ get_header('gallery'); ?>
 	</div>
 	<script type="text/javascript" charset="utf-8" src="<?php echo (get_stylesheet_directory_uri().'/js/sandy-gallery.js') ?>"></script>
 
-<?php get_footer('gallery'); ?>
+<?php get_footer(); ?>

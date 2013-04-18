@@ -33,21 +33,27 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<?php wp_head(); ?>
+	<?php echo '<style type="text/css">'; ?>
+		body #logo img {max-width:<?php echo of_get_option('logo_width'); ?>px;}
+		body, .sf-menu li.sfHover li a, .sf-menu li.sfHover li a:visited, .sf-menu li.sfHover li li a, .sf-menu li.sfHover li li a:visited, .sf-menu li.sfHover li li li a, .sf-menu li.sfHover li li li a:visited, .sf-menu li.sfHover li li li li a, .sf-menu li.sfHover li li li li a:visited { font-family:"<?php echo of_get_option('main_font', 'Helvetica Neue'); ?>", Helvetica, Arial, Sans-Serif;}
+		.sf-menu a, .button, input.submit, h5, .featured-text, .twitter-text, ul.filter-children li a, input.wpcf7-submit, #respond input#submit, #page-nav a, .twitter-post blockquote.twitter-tweet p a {font-family: '<?php echo of_get_option('navigation_font', 'PT Sans'); ?>', sans-serif; }
+		h2, h3, h4, h6, .twitter-time-stamp, .tag-cloud, .blog-post-details, .pagination a, .twitter-post blockquote.twitter-tweet a {font-family: '<?php echo of_get_option('secondary_font', 'PT Sans Narrow'); ?>', sans-serif; }
+		.flex-caption, h1 {font-family: '<?php echo of_get_option('caption_font', 'Dosis'); ?>', sans-serif; }
+		.sf-menu a {padding-top:<?php echo of_get_option('navigation_height', "96") / 2 + 3; ?>px; padding-bottom:<?php echo of_get_option('navigation_height', "96") / 2 - 3; ?>px;}  
+		.sf-menu li:hover ul, .sf-menu li.sfHover ul {top:<?php echo of_get_option('navigation_height', "96") + 15; ?>px;} 
+
+		<?php if(of_get_option('sticky_navigation', '0')): ?>#sticky-navigation-spacer {padding-top:<?php echo of_get_option('navigation_height', "96") + 15; ?>px;}<?php endif; ?>
+	<?php echo '</style>'; ?>
 	<style type="text/css" media="screen">
-		body.page-template-page-galleria-php, body.page-template-page-galleria-php #main { background-color: #222; padding: 0; }
-		body.page-template-page-galleria-php #main { padding: 0; }
-		body.page-template-page-galleria-php header, body.page-template-page-galleria-php footer { display: none; }
-		body.page-template-page-galleria-php .content-container { background-color: transparent; border: none; }
 
 		#wrapper-page #wrapper-content { position: relative; z-index: 1; }
-		#wrapper-gallery { width: 100%; height: 75%; max-height: 768px; }
+		#wrapper-gallery { width: 100%; }
 		#galleria { width: 100%; height: 100%; margin: 0 auto; display: none; position: relative; z-index: 3; }
 		#wrapper-galleria #status { 
+		display: none;
 		position: absolute; z-index: 9; top: 24px; right: 0; width: 320px; padding: 12px; font-size: 10pt; 
 		background-color: #f26222; color: #fff; 
-	}	
-
-	
+	}		
 		#ssl-loader { 
 		width:100%; height:100%; margin:0; position:absolute; left:0; top:0; color:#fff; 
 		text-align:center; z-index:4; 		
@@ -56,22 +62,34 @@
 	
 	</style>
 	<script type="text/javascript">
-		var templateDir = "<?php bloginfo('stylesheet_directory'); ?>";
+	var templateDir = "<?php bloginfo('stylesheet_directory'); ?>";
 	</script>
 
 </head>
 
 <body <?php body_class(); ?>>
+<?php if(of_get_option('sticky_navigation', '0')): ?><div id="sticky-navigation-spacer"></div><div id="sticky-navigation"><?php endif; ?>
 <header>
-
 	<div class="width-container clearfix">
 		
-		<h1 id="logo" class="compact"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+		<h1 id="logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 			<img src="<?php echo of_get_option('logo', get_template_directory_uri() . '/images/logo.png'); ?>" alt="<?php bloginfo('name'); ?>" width="<?php echo of_get_option('logo_width'); ?>" />
 		</a></h1>
-		<h1 class="align-right"><?php echo get_the_title($post->ID); ?></h1>
+
+		<div class="bar-controls clearfix">
+		<nav>
+			<?php wp_nav_menu( array('theme_location' => 'primary', 'depth' => 4, 'menu_class' => 'sf-menu', 'container_class' => 'wrapper-nav clearfix') ); ?>
+		</nav>
+		<div class="social-icons">
+			<a class="facebook" href="https://www.facebook.com/sandystoryline" target="_blank">F</a>
+			<a class="twitter" href="https://twitter.com/sandystoryline" target="_blank">t</a>
+		</div><!-- close .social-icons -->
+
+		
+		</div><!-- /.bar-controls -->
 	</div><!-- close .width-container -->
 </header>
+<?php if(of_get_option('sticky_navigation', '0')): ?></div><!-- close #sticky-navigation --><?php endif; ?>
 
 
 <div id="main" class="site-main">

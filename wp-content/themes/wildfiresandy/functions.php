@@ -162,8 +162,6 @@ function sandy_scripts() {
 		wp_deregister_style('shortcodes');
 		wp_deregister_script('jquery'); /* need < v1.9.* */
 		wp_deregister_script('modernizr');
-		wp_deregister_script('plugins');
-		wp_deregister_script('scripts');
 		wp_deregister_script('shortcodes');
 		
 		wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js', false, '');

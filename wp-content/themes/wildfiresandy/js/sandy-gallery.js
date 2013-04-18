@@ -1,7 +1,6 @@
 (function(jQuery){
 	var SandyGallery = {};
-	var refreshInterval = 5000; //FOR FREQUENCY of grab (production : let's do 2 minutes)
-	var latestFeedData = []; //LATEST RSS FEED DATA	
+	var refreshInterval = 120000; //FOR FREQUENCY of grab (production : let's do 2 minutes)
 	var newGalItems = []; //NEW ITEMS SINCE LAST TIME
 	var tempArray = []; //holds all image items from feed (some stories may not include images) 	
 	var galleryData = []; //CURRENTLY IN USE -- add objects to array from feed JSON
@@ -9,22 +8,21 @@
 
 	SandyGallery.setup = function(){
 		Galleria.configure({
-			height: 768,
-			autoplay: 3000,
+			height: 480,
+			autoplay: false,
 			transition: 'fadeslide',
 			imageCrop: 'height',
 			showInfo: true,
-			debug: true,
-			transitionSpeed: 1200,
+			debug: false,
+			transitionSpeed: 600,
 			wait: true,
-			idleMode : false
+			idleMode : 'hover'
 		});	
 	};
 
 	jQuery(document).ready(function(){
 		//cache the gallery
 		SandyGallery.gallery = jQuery('#galleria');
-		var statusBar = jQuery("#status"); 
 		var loader = jQuery("#ssl-loader");
 
 		//CALL our functions
@@ -44,7 +42,7 @@
 				SandyGallery.gallery.show();
 		
 				}).error(function(){ 
-					console.log("error"); 
+					//console.log("error"); 
 				});
 		    setTimeout(makeRequest, refreshInterval);
 		})();
@@ -52,14 +50,14 @@
 
 			//DATA READY handler 
 			SandyGallery.gallery.bind("dataReady", function(e){
-				console.log("dataReady!");
+				//console.log("dataReady!");
 
 				//update current galleryData
 
 				// 1) do we have new entries? check date posted
 				//will update at least on initial run
 				if(e.oNewData.length){
-					console.log(e.oNewData.length+"new items found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+					//console.log(---------------------------------------- e.oNewData.length+"new items found");
 
 					jQuery.event.trigger({
 						type : "newData",
@@ -68,33 +66,22 @@
 
 					} //else data unchanged since last request
 
-					// 2) update status with new date
-					statusBar.text("last updated :"+e.oLastUpdated);
-
 				});
 
 
 				//NEW DATA handler : (re)load up galleria	
 				SandyGallery.gallery.bind("newData", function(e){
-					console.log("//////////////////////////////////////////// newData!"+e.oToAddData);
+					//console.log("----------------------------------------newData!"+e.oToAddData);
 					// check if galleria has been initialized
 					if (SandyGallery.gallery.data('galleria')) {
 						var sandyGal = SandyGallery.gallery.data('galleria');
-						console.log("reload gallery: "+e.oToAddData);
+						//console.log("reload gallery: "+e.oToAddData);
 						sandyGal.push(e.oToAddData);
-						//splice new stories into start of current array
-						//sandyGal.splice(0, 0, e.oToAddData);
+
 						//update galleryData
 						galleryData.push(e.oToAddData);
-								
-						/*var index = sandyGal.getIndex();
-        					setTimeout(function () {
-            					sandyGal.show(0);
-        					}, 50);
-						*/
-						//keep in fullscreen!
-						
-						console.log("----------------------------------------SPLICE to gallery : now "+galleryData.length+" items in galleryData");
+														
+						//console.log("----------------------------------------SPLICE to gallery : now "+galleryData.length+" items in galleryData");
 
 						// else initialize galleria (1st time)
 					} else {
@@ -103,18 +90,16 @@
 							// add the data as dataSource
 							dataSource: galleryData
 						});
-						console.log("----------------------------------------INIT gallery with "+galleryData.length+" items");
+						//console.log("----------------------------------------INIT gallery with "+galleryData.length+" items");
 
 					}
 
 				});
 
-
-
 			});
 
 			var dataCheck = function(jsonData){
-				console.log("dataCheck called: "+jsonData.stories.channel.item.length);
+				//console.log("dataCheck called: "+jsonData.stories.channel.item.length);
 				var lastUpdated = jsonData.date;
 
 				//reset the latest feed items array & new items flag
@@ -154,7 +139,7 @@
 				numNew = tempArray.length - galleryData.length;
 				//get just the new items
 				newGalItems = tempArray.splice(0, numNew);
-				console.log("passing on "+newGalItems.length+" gal items");
+				//console.log("passing on "+newGalItems.length+" gal items");
 
 				//AFTER LOOP : trigger event : data ready
 				jQuery.event.trigger({
