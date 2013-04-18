@@ -59,7 +59,7 @@
 		text-align:center; z-index:4; 		
 		display:none; background:#000 url(<?php echo (get_stylesheet_directory_uri().'/js/galleria/themes/azur/loader-ssl.gif') ?> no-repeat center center; filter: alpha(opacity=48); 
 		-moz-opacity:0.48; opacity:0.48; line-height:150px; border-radius:6px }
-	
+		
 	</style>
 	<script type="text/javascript">
 	var templateDir = "<?php bloginfo('stylesheet_directory'); ?>";

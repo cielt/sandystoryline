@@ -139,6 +139,9 @@ h3.gallery-type { text-transform: uppercase; font-size: 16pt;
 .content-container p { line-height: 1.5em; margin-bottom: 2em; }
 .uppercase { text-transform: uppercase; }
 
+.sub-heading { margin: 0; padding: 0; }
+.sub-heading p { margin-bottom: 0; }
+
 
 
 

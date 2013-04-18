@@ -9,21 +9,19 @@
 
 get_header('gallery'); ?>
 
-
 </div><!-- close .width-container -->
 	<?php while ( have_posts() ) : the_post(); ?>
 <div id="highlight-container">
 	<div class="width-container clearfix">
-		
+		<?php echo("<h1 class='page-title'>" . get_the_title($post->ID) ."</h1>"); ?>
+		<div class="sub-heading"><?php the_content(); ?></div>
 	</div>
 </div><!-- close #highlight-container -->
-<div class="width-container clearfix">
 
+<div class="width-container clearfix">
+	
 <!-- GALLERIA -->	
 	<div id="wrapper-galleria" class="content-container">
-
-			<!-- when last feed grabbed -->	
-		     <div id="status" class=""></div>
 		<div id="wrapper-content">
 			<div id="wrapper-gallery">
 				<div id="galleria" class="clearfix"></div>
