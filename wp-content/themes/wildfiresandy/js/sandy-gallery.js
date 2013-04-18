@@ -12,11 +12,13 @@
 			autoplay: false,
 			transition: 'fadeslide',
 			imageCrop: 'height',
+			thumbCrop: 'height',
 			showInfo: true,
 			debug: false,
 			transitionSpeed: 600,
 			wait: true,
-			idleMode : 'hover'
+			idleMode : false,
+			_toggleCaption: false
 		});	
 	};
 
