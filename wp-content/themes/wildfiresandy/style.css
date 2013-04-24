@@ -77,7 +77,7 @@ a, h3 a:hover, .content-container a:hover h4, .content-container a:hover h6.post
 /* default body copy link styles */
 .container-spacing a { text-decoration: underline; }
 .container-spacing a:hover { text-decoration: none; }
-
+.container-spacing a.progression-medium { text-decoration: none; }
 
 address { font-style: normal; margin: 0 0 2em;  }
 a.progression-medium {  
