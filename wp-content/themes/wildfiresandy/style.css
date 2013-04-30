@@ -258,8 +258,8 @@ address.quote-author span.author-deets { display : block; font-style: italic; fo
 
 /* =BLOG! 
 ---------------------------------------------------- */
-.blog-post-details .post-comments { display: none; } 
-
+.blog-post-details .post-comments { display: none !important; } 
+.addthis_toolbox { margin: 10px 0; }
 
 
 /* =PRESERVE CB DEFAULTS 
