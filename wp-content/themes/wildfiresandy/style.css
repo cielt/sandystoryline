@@ -256,6 +256,12 @@ address.quote-author span.author-deets { display : block; font-style: italic; fo
 
 
 
+/* =BLOG! 
+---------------------------------------------------- */
+.blog-post-details .post-comments { display: none; } 
+
+
+
 /* =PRESERVE CB DEFAULTS 
 ---------------------------------------------------- */
 #cowbird h1, #cowbird h3, #cowbird p {
