@@ -21,7 +21,7 @@ class Theme_My_Login extends Theme_My_Login_Abstract {
 	 * @since 6.3.2
 	 * @const string
 	 */
-	const version = '6.3.5';
+	const version = '6.3.6';
 
 	/**
 	 * Holds options key
@@ -785,6 +785,9 @@ if(typeof wpOnload=='function')wpOnload()
 
 		if ( self::is_tml_page() && in_the_loop() && is_main_query() && ! $did_main_instance ) {
 			$instance = $this->get_instance();
+
+			if ( ! empty( $this->request_instance ) )
+				$instance->set_active( false );
 
 			if ( ! empty( $this->request_action ) )
 				$atts['default_action'] = $this->request_action;

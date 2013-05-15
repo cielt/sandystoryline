@@ -4,11 +4,11 @@
  Plugin URI: http://www.uppsite.com/features/
  Description: UppSite is the best way to make your site mobile. Here is how you get started: 1) Activate your plugin by clicking the "Activate" link to the left of this description, and 2) Configure your mobile apps by visiting the Mobile tab under Settings (tab will show only after plugin is activated). Go Mobile&#0153; <strong>**** DISABLING THIS PLUGIN MAY PREVENT YOUR USERS FROM ACCESSING YOUR MOBILE APPS! ****</strong>
  Author: UppSite
- Version: 5.1.2
+ Version: 5.1.3
  Author URI: https://www.uppsite.com
  */
 if (!defined('MYSITEAPP_AGENT')):
-define('MYSITEAPP_PLUGIN_VERSION', '5.1.2');
+define('MYSITEAPP_PLUGIN_VERSION', '5.1.3');
 define('MYSITEAPP_WEBAPP_PREF_THEME', 'uppsite_theme_select');
 define('MYSITEAPP_WEBAPP_PREF_TIME', 'uppsite_theme_time');
 define('MYSITEAPP_WEBAPP_PREVIEW', 'uppsite_preview');
@@ -29,7 +29,6 @@ define('MYSITEAPP_APP_NATIVE_URL', MYSITEAPP_WEBSERVICES_URL.'/getapplink.php?v=
 define('MYSITEAPP_AUTOKEY_URL', MYSITEAPP_WEBSERVICES_URL.'/autokeys.php');
 define('MYSITEAPP_PREFERENCES_URL', MYSITEAPP_WEBSERVICES_URL . '/preferences.php?ver=' . MYSITEAPP_PLUGIN_VERSION);
 define('MYSITEAPP_WEBAPP_RESOURCES', 'http://static.uppsite.com/v3/webapp');
-define('MYSITEAPP_FACEBOOK_COMMENTS_URL','http://graph.facebook.com/comments/?ids=');
 define('MYSITEAPP_ONE_DAY', 86400); 
 define('MYSITEAPP_BUFFER_POSTS_COUNT', 5);
 define('MYSITEAPP_HOMEPAGE_POSTS', 5);
@@ -250,7 +249,7 @@ foreach (MySiteAppPlugin::$_mobile_ua_os as $osName => $osUA) {
     MySiteAppPlugin::$_mobile_ua = array_merge(MySiteAppPlugin::$_mobile_ua, $osUA);
 }
 require_once( dirname(__FILE__) . '/includes/business.php' );
-require_once( dirname(__FILE__) . '/includes/fbcomments_page.inc.php' );
+require_once( dirname(__FILE__) . '/includes/comments_helper.php' );
 global $msap;
 $msap = new MySiteAppPlugin();
 function mysiteapp_filter_template($newValue) {
@@ -757,7 +756,7 @@ add_action('init', 'uppsite_remote_activation');
 add_action('publish_post', 'mysiteapp_new_post_push', 10, 1);
 add_action('publish_future_post', 'mysiteapp_future_post_push', 10, 1);
 add_action('wp_head', 'mysiteapp_append_native_link');
-add_action('pre_get_posts', 'uppsite_pre_get_posts');
+add_action('pre_get_posts', 'uppsite_pre_get_posts', 99999); 
 add_filter('option_show_on_front', 'uppsite_filter_show_on_front');
 add_action('wp_ajax_nopriv_uppsite_verify_nonce', 'uppsite_ajax_verify_nonce');
 endif; 

@@ -710,7 +710,7 @@ a.comment-reply-link {
 #respond .comment-form-author, #respond .comment-form-email, #respond .comment-form-url, #respond .comment-form-comment {font-size:90%; }
 p.form-allowed-tags {font-size:11px; line-height:16px;}
 p.form-allowed-tags code {display:block;}
-#respond label {font-size:12px; padding-left: 0px; ; }
+#respond label {font-size:12px; padding-left: 0px; }
 #respond input, #respond textarea {display:block; margin-top:2px;}
 #respond .comment-form-author, #respond .comment-form-email, #respond .comment-form-url, #respond .comment-form-comment, #respond .form-allowed-tags, #respond .form-submit {padding:0px 0px 2px 0px;}
 #respond .comment-notes {padding-bottom:2px;}

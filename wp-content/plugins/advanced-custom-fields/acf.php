@@ -3,14 +3,14 @@
 Plugin Name: Advanced Custom Fields
 Plugin URI: http://www.advancedcustomfields.com/
 Description: Fully customise WordPress edit screens with powerful fields. Boasting a professional interface and a powerfull API, it’s a must have for any web developer working with WordPress. Field types include: Wysiwyg, text, textarea, image, file, select, checkbox, page link, post object, date picker, color picker, repeater, flexible content, gallery and more!
-Version: 4.0.3
+Version: 4.1.0
 Author: Elliot Condon
 Author URI: http://www.elliotcondon.com/
 License: GPL
 Copyright: Elliot Condon
 */
 
- 
+
 // lite mode
 if( !defined('ACF_LITE') )
 {
@@ -66,7 +66,7 @@ class Acf
 		$this->settings = array(
 			'path' => apply_filters('acf/helpers/get_path', __FILE__),
 			'dir' => apply_filters('acf/helpers/get_dir', __FILE__),
-			'version' => '4.0.3',
+			'version' => '4.1.0',
 			'upgrade_version' => '3.4.1',
 		);
 		
@@ -210,7 +210,7 @@ class Acf
 			foreach( $value as $k => $v )
 			{
 				// if $field was passed, never modify the value! NEVER!
-				if( $k == 'value' )
+				if( $k === 'value' )
 				{
 					continue;
 				}

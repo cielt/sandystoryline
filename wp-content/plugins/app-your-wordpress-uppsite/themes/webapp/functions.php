@@ -435,6 +435,7 @@ add_filter('tag_template', 'uppsite_get_webapp_page');
 add_filter('archive_template', 'uppsite_get_webapp_page');
 add_filter('login_redirect', 'uppsite_redirect_login', 10, 3);
 add_filter('comment_post_redirect', 'uppsite_redirect_comment', 10, 3);
+remove_all_filters('comments_template');
 function uppsite_fix_youtube($content) {
         if (!preg_match_all("/<iframe[^>]*src=\"[^\"]*youtube.com[^\"]*\"[^>]*>[^<]*<\/iframe>/x", $content, $matches)) {
         return $content;

@@ -191,8 +191,8 @@ class Theme_My_Login_Admin extends Theme_My_Login_Abstract {
 	 * @return string|array Sanitized settings
 	 */
 	public function save_settings( $settings ) {
-		$settings['enable_css']     = isset( $settings['enable_css']     );
-		$settings['email_login']    = isset( $settings['email_login']    );
+		$settings['enable_css']     = ! empty( $settings['enable_css']   );
+		$settings['email_login']    = ! empty( $settings['email_login']  );
 		$settings['active_modules'] = isset( $settings['active_modules'] ) ? (array) $settings['active_modules'] : array();
 
 		// If we have modules to activate
@@ -220,9 +220,9 @@ class Theme_My_Login_Admin extends Theme_My_Login_Abstract {
 	 * Installs TML
 	 *
 	 * @since 6.0
-	 * @access private
+	 * @access public
 	 */
-	private function install() {
+	public function install() {
 		// Current version
 		$version = $this->get_option( 'version', Theme_My_Login::version );
 
