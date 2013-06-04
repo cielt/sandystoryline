@@ -262,12 +262,15 @@ address.quote-author span.author-deets { display : block; font-style: italic; fo
 .addthis_toolbox { margin: 10px 0; }
 
 
-/* =PRESERVE CB DEFAULTS 
+/* =PRESERVE CB DEFAULTS; OVERRIDES 
 ---------------------------------------------------- */
 #cowbird h1, #cowbird h3, #cowbird p {
 	font-family: inherit; text-transform: none;
 }
 
+#cowbird .cowbird-story .cb-follow {
+	display: none!important; 
+}
 
 
 /* =MEDIA / RESPONSIVE 
